@@ -9,10 +9,16 @@ use App\Models\Movie;
 class PageController extends Controller
 {
     function home(){
-        $movies = Movie::where("title","original_title","date","vote");
+        // $movies = Movie::where("title", "original_title", "date", "vote")
+        //     ->get();
+        $movies = Movie::all();
         dump($movies);
         return view("home",[
         "movies" => $movies
         ]);
     }
+}
+function movie(){
+    $movie = new Movie();
+    $movie->save();
 }
